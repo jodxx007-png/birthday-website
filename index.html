@@ -1,14 +1,7 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Surprise ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
-
-<style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Birthday Surprise ❤️</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet"><style>
 
 *{
 margin:0;
@@ -17,55 +10,73 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
+height:100vh;
 overflow:hidden;
 background:linear-gradient(135deg,#E9D5FF,#D8B4FE,#C084FC,#A855F7);
 background-size:400% 400%;
 animation:bg 12s ease infinite;
-height:100vh;
 }
 
-@keyframes bg{#passwordScreen{
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+
+/* Password Screen */
+
+#passwordScreen{
+
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100vh;
-background:linear-gradient(135deg,#E9D5FF,#C084FC,#A855F7);
 display:flex;
 justify-content:center;
 align-items:center;
 z-index:9999;
+background:linear-gradient(135deg,#E9D5FF,#C084FC,#A855F7);
+
 }
 
+
 .passwordBox{
+
 background:white;
 padding:35px;
 border-radius:25px;
 text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+
 }
 
+
 .passwordBox h2{
+
 font-family:'Pacifico',cursive;
 color:#9333EA;
 margin-bottom:20px;
+
 }
 
+
 .passwordBox input{
+
 padding:12px;
-width:220px;
+width:230px;
 border:2px solid #C084FC;
 border-radius:20px;
 outline:none;
 text-align:center;
+
 }
 
+
 .passwordBox button{
+
 margin-top:15px;
 padding:12px 30px;
 border:none;
@@ -73,428 +84,95 @@ border-radius:25px;
 background:#9333EA;
 color:white;
 cursor:pointer;
+
 }
+
 
 #error{
+
 color:red;
 margin-top:10px;
-}
-
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
 
 }
 
-.loading{
 
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-display:flex;
+/* Main Page */
+
+#main{
+
+display:none;
+height:100vh;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-background:linear-gradient(135deg,#E9D5FF,#C084FC);
-z-index:9999;
+color:white;
+text-align:center;
 
 }
 
-.logo{
+
+.title{
 
 font-size:45px;
 font-family:'Pacifico',cursive;
-color:white;
 
 }
+
 
 .subtitle{
 
-margin-top:10px;
+margin-top:15px;
 font-size:18px;
-color:white;
 
 }
 
-.loader{
 
-margin-top:30px;
-width:260px;
-height:10px;
-background:rgba(255,255,255,.35);
-border-radius:30px;
-overflow:hidden;
-
-}
-
-.bar{
-
-width:0%;
-height:100%;
-background:white;
-border-radius:30px;
-animation:loading 3s linear forwards;
-
-}
-
-@keyframes loading{
-
-100%{
-width:100%;
-}
-
-}
-
-.hearts{
+.heart{
 
 position:absolute;
-width:100%;
-height:100%;
-overflow:hidden;
-
-}
-
-.hearts span{
-
-position:absolute;
-bottom:-100px;
-font-size:25px;
+bottom:-50px;
+font-size:30px;
 animation:float 8s linear infinite;
-opacity:.8;
 
 }
+
 
 @keyframes float{
 
 0%{
-
-transform:translateY(0) rotate(0deg);
-
+transform:translateY(0);
 }
 
 100%{
-
-transform:translateY(-120vh) rotate(360deg);
-
-}
-
-} .loading.hide{
-opacity:0;
-visibility:hidden;
-transition:1s;
-}
-
-.password-screen{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-display:none;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#F5ECFF,#E9D5FF,#D8B4FE);
-overflow:hidden;
-}
-
-.password-screen.active{
-display:flex;
-}
-
-.card{
-
-width:340px;
-padding:35px;
-border-radius:30px;
-
-background:rgba(255,255,255,.25);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.35);
-
-box-shadow:0 15px 35px rgba(0,0,0,.15);
-
-text-align:center;
-
-animation:pop .8s;
-
-}
-
-@keyframes pop{
-
-0%{
-transform:scale(.7);
-opacity:0;
-}
-
-100%{
-transform:scale(1);
-opacity:1;
+transform:translateY(-120vh);
 }
 
 }
 
-.card h1{
+</style></head><body><div id="passwordScreen"><div class="passwordBox"><h2>Private Surprise 💜</h2><input type="password" id="pass" placeholder="Enter Password"><br><button onclick="checkPassword()">
+Open Surprise 🎁
+</button><p id="error"></p></div></div><div id="main"><div class="title">
+Birthday Surprise ❤️
+</div><div class="subtitle">
+Something Magical Is Coming ✨
+</div></div><span class="heart" style="left:10%">💜</span>
+<span class="heart" style="left:30%;animation-delay:1s">💖</span>
+<span class="heart" style="left:50%;animation-delay:2s">✨</span>
+<span class="heart" style="left:70%;animation-delay:3s">🌸</span>
+<span class="heart" style="left:90%;animation-delay:4s">💜</span>
 
-font-size:30px;
-
-color:#7E22CE;
-
-margin-bottom:10px;
-
-}
-
-.card p{
-
-color:#6B21A8;
-
-margin-bottom:25px;
-
-}
-
-.input-box{
-
-position:relative;
-
-}
-
-.input-box input{
-
-width:100%;
-
-padding:15px;
-
-border:none;
-
-outline:none;
-
-border-radius:15px;
-
-font-size:17px;
-
-background:white;
-
-}
-
-.show{
-
-position:absolute;
-
-right:15px;
-
-top:15px;
-
-cursor:pointer;
-
-font-size:18px;
-
-}
-
-.unlock{
-
-margin-top:20px;
-
-width:100%;
-
-padding:15px;
-
-border:none;
-
-border-radius:15px;
-
-background:#A855F7;
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-.unlock:hover{
-
-transform:scale(1.05);
-
-background:#9333EA;
-
-}
-
-.error{
-
-margin-top:15px;
-
-color:#E11D48;
-
-font-weight:bold;
-
-display:none;
-
-}
-
-.stars{
-
-position:absolute;
-
-width:100%;
-
-height:100%;
-
-overflow:hidden;
-
-}
-
-.stars span{
-
-position:absolute;
-
-color:white;
-
-font-size:18px;
-
-animation:float 10s linear infinite;
-
-opacity:.8;
-
-} </style>
-
-</head>
-
-<body><div id="passwordScreen">
-
-<div class="passwordBox">
-
-<h2>Private Surprise 💜</h2>
-
-<input type="password" id="pass" placeholder="Enter Password">
-
-<br>
-
-<button onclick="checkPassword()">Open Surprise 🎁</button>
-
-<p id="error"></p>
-
-</div>
-
-</div>
-
-<div class="loading" id="loading">
-
-<div class="hearts">
-
-<span style="left:10%;animation-delay:0s;">💜</span>
-<span style="left:25%;animation-delay:1s;">✨</span>
-<span style="left:40%;animation-delay:2s;">💖</span>
-<span style="left:60%;animation-delay:3s;">🌸</span>
-<span style="left:80%;animation-delay:4s;">💜</span>
-
-</div>
-
-<div class="logo">
-Birthday Surprise
-</div>
-
-<div class="subtitle">
-Something Magical Is Coming...
-</div>
-
-<div class="loader">
-<div class="bar"></div>
-</div>
-
-</div>
-
-<div <script>
-
-setTimeout(()=>{
-
-document.getElementById("loading").classList.add("hide");
-
-setTimeout(()=>{
-
-document.getElementById("password").classList.add("active");
-
-},900);
-
-},3000);
-
-function togglePass(){
-
-let p=document.getElementById("pass");
-
-if(p.type==="password"){
-
-p.type="text";
-
-}else{
-
-p.type="password";
-
-}
-
-}
-
-const PASSWORD="1208";
-
-function checkPassword(){
-
-let pass=document.getElementById("pass").value;
-
-if(pass===PASSWORD){
-
-alert("Password Correct 💜");
-
-}else{
-
-let e=document.getElementById("error");
-
-e.style.display="block";
-
-document.querySelector(".card").animate([
-
-{transform:"translateX(-8px)"},
-
-{transform:"translateX(8px)"},
-
-{transform:"translateX(-8px)"},
-
-{transform:"translateX(8px)"},
-
-{transform:"translateX(0px)"}
-
-],{
-
-duration:400
-
-});
-
-}
-
-}
-
-</script>
 <script>
 
 function checkPassword(){
 
-let password = document.getElementById("pass").value;
+let password=document.getElementById("pass").value;
 
-if(password === "vishiforever1326"){
+
+if(password==="vishiforever1326"){
 
 document.getElementById("passwordScreen").style.display="none";
+
+document.getElementById("main").style.display="flex";
 
 }
 
@@ -506,7 +184,5 @@ document.getElementById("error").innerHTML="Wrong Password ❌";
 
 }
 
-</script>
-</body>
-
+</script></body>
 </html>
