@@ -29,7 +29,56 @@ animation:bg 12s ease infinite;
 height:100vh;
 }
 
-@keyframes bg{
+@keyframes bg{#passwordScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:linear-gradient(135deg,#E9D5FF,#C084FC,#A855F7);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.passwordBox{
+background:white;
+padding:35px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.passwordBox h2{
+font-family:'Pacifico',cursive;
+color:#9333EA;
+margin-bottom:20px;
+}
+
+.passwordBox input{
+padding:12px;
+width:220px;
+border:2px solid #C084FC;
+border-radius:20px;
+outline:none;
+text-align:center;
+}
+
+.passwordBox button{
+margin-top:15px;
+padding:12px 30px;
+border:none;
+border-radius:25px;
+background:#9333EA;
+color:white;
+cursor:pointer;
+}
+
+#error{
+color:red;
+margin-top:10px;
+}
 
 0%{
 background-position:0% 50%;
@@ -324,7 +373,23 @@ opacity:.8;
 
 </head>
 
-<body>
+<body><div id="passwordScreen">
+
+<div class="passwordBox">
+
+<h2>Private Surprise 💜</h2>
+
+<input type="password" id="pass" placeholder="Enter Password">
+
+<br>
+
+<button onclick="checkPassword()">Open Surprise 🎁</button>
+
+<p id="error"></p>
+
+</div>
+
+</div>
 
 <div class="loading" id="loading">
 
@@ -421,7 +486,27 @@ duration:400
 }
 
 </script>
+<script>
 
+function checkPassword(){
+
+let password = document.getElementById("pass").value;
+
+if(password === "vishiforever1326"){
+
+document.getElementById("passwordScreen").style.display="none";
+
+}
+
+else{
+
+document.getElementById("error").innerHTML="Wrong Password ❌";
+
+}
+
+}
+
+</script>
 </body>
 
 </html>
